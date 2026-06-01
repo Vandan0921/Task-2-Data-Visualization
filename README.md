@@ -157,9 +157,8 @@ By completing this project, I learned how to:
 
 # Repository Contents
 
-* Power BI Project File (.pbix)
 * README.md
-* Screenshots (Optional)
+* Screenshots
 * Dataset References
 
 ---
