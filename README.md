@@ -1,50 +1,171 @@
-# Analyzing and Visualizing Data with **[Power BI](https://powerbi.microsoft.com/en-us/?wt.mc_id=DXLEX_edx_DAT207x)**
-This is solution of Microsoft professional program for Data Scientist "DAT207x Analyzing and Visualizing Data with Power BI"
+# Power BI Data Import and Transformation Project
 
-**[Live Report 1](https://app.powerbi.com/view?r=eyJrIjoiNTI1Yjg2Y2QtZTBlMi00NjhlLThlMjMtODZhM2YyMzNkOTJhIiwidCI6Ijc1ZGYwOTZjLThiNzItNDhlNC05YjkxLWNiZjc5ZDg3ZWUzYSIsImMiOjl9)**
+## Project Overview
 
+This project demonstrates how to import, clean, transform, and integrate data from multiple sources in Power BI Desktop. The project uses VanArsdel sales data from Microsoft Learning and covers data preparation techniques including filtering, appending, unpivoting, and data transformation.
 
-***Overview :***
+---
 
-**[Exercise 1: Import Data from Access Database](https://github.com/MuhammadBilalYar/Analyzing-and-Visualizing-Data-with-Power-BI/wiki/Lab-1---Exercise-1:)**
+## Tools Used
 
-**[Exercise 2: Import Data from a Folder Containing CSV Files](https://github.com/MuhammadBilalYar/Analyzing-and-Visualizing-Data-with-Power-BI/wiki/Lab-1---Exercise-2:)**
+* Power BI Desktop
+* Microsoft Access Database
+* CSV Files
+* Microsoft Excel
 
-**[Exercise 3: Import a Less Structured Data from an Excel File](https://github.com/MuhammadBilalYar/Analyzing-and-Visualizing-Data-with-Power-BI/wiki/Lab-1---Exercise-3:)**
+---
 
-![Lab All Exercise ](https://github.com/MuhammadBilalYar/Analyzing-and-Visualizing-Data-with-Power-BI/blob/master/Lab1%20-%20All%20Exercise%20Solution/Images/Import%20Data%20from%20Access%20Database.PNG)
+# Exercise 1: Import Data from Access Database
 
+## Objective
 
-### Last Year Comparison
-![Last Year Comparison](https://github.com/MuhammadBilalYar/Analyzing-and-Visualizing-Data-with-Power-BI/blob/master/Lab2%20-%20All%20Exercise%20Solution/Images/Exercise%202%20Last%20Year%20Comparison.PNG)
+Import sales-related data from an Access database and perform initial transformations before loading the data model.
 
-### Year to Date
-![Year to Date](https://github.com/MuhammadBilalYar/Analyzing-and-Visualizing-Data-with-Power-BI/blob/master/Lab2%20-%20All%20Exercise%20Solution/Images/Exercise%203%20Year%20to%20Date.PNG)
+## Imported Tables
 
-### Market Share
-![Market Share](https://github.com/MuhammadBilalYar/Analyzing-and-Visualizing-Data-with-Power-BI/blob/master/Lab2%20-%20All%20Exercise%20Solution/Images/Exercise%204%20Market%20Share.PNG)
+* bi_date
+* bi_geo
+* bi_manufacturer
+* bi_product
+* bi_salesFact
 
-### Sale and Units
-![Sale and Units](https://github.com/MuhammadBilalYar/Analyzing-and-Visualizing-Data-with-Power-BI/blob/master/Lab3%20-%20All%20Exercise%20Solution/Images/Sale%20and%20Units.PNG)
+## Transformations Performed
 
-### Sales Breakdown
-![Sales Breakdown](https://github.com/MuhammadBilalYar/Analyzing-and-Visualizing-Data-with-Power-BI/blob/master/Lab3%20-%20All%20Exercise%20Solution/Images/Sales%20Breakdown.PNG)
+### bi_salesFact
 
-### Top Products
-![Top Products](https://github.com/MuhammadBilalYar/Analyzing-and-Visualizing-Data-with-Power-BI/blob/master/Lab3%20-%20All%20Exercise%20Solution/Images/Top%20Products.PNG)
+* Changed Date column data type to Date.
+* Filtered records to include dates after December 31, 1999.
 
-### Yearly Trend
-![Yearly Trend](https://github.com/MuhammadBilalYar/Analyzing-and-Visualizing-Data-with-Power-BI/blob/master/Lab3%20-%20All%20Exercise%20Solution/Images/Yearly%20Trend.PNG)
+### bi_date
 
-### Working with Power BI Service
-![Working with Power BI Service](https://github.com/MuhammadBilalYar/Analyzing-and-Visualizing-Data-with-Power-BI/blob/master/Lab4%20-%20All%20Exercise%20Solution/Images/Working%20with%20Power%20BI%20Service.PNG)
+* Changed Date column data type to Date.
+* Filtered records to include dates after December 31, 1999.
 
+### Query Renaming
 
-### Total Sales, Total Units and YTD Sales by Category, Segment and Year
-![Total Sales, Total Units and YTD Sales by Category, Segment and Year](https://github.com/MuhammadBilalYar/Analyzing-and-Visualizing-Data-with-Power-BI/blob/master/Lab5%20-%20All%20Exercise%20Solution/Total%20Sales%2C%20Total%20Units%20and%20YTD%20Sales%20by%20Category%2C%20Segment%20and%20Year.PNG)
+| Original Table  | Renamed Query |
+| --------------- | ------------- |
+| bi_date         | Date          |
+| bi_geo          | Locations     |
+| bi_manufacturer | Manufacturers |
+| bi_product      | Products      |
+| bi_salesFact    | Sales         |
 
-### Sale by Region
-![Sale by Region](https://github.com/MuhammadBilalYar/Analyzing-and-Visualizing-Data-with-Power-BI/blob/master/Lab8%20-%20All%20Exercise%20Solution/Images/Sale%20by%20Region.PNG)
+## Result
 
-### Sales Report
-![Sales Report](https://github.com/MuhammadBilalYar/Analyzing-and-Visualizing-Data-with-Power-BI/blob/master/Lab8%20-%20All%20Exercise%20Solution/Images/Sales%20Report.PNG)
+Data was successfully loaded into Power BI Desktop and validated in Data View.
+
+---
+
+# Exercise 2: Import Data from Folder Containing CSV Files
+
+## Objective
+
+Import international sales data from multiple CSV files and combine it with existing US sales data.
+
+## Data Source
+
+Folder containing four CSV files with international sales records.
+
+## Transformations Performed
+
+### International Sales Query
+
+* Combined all CSV files into a single query.
+* Renamed query to International Sales.
+* Filtered records after December 31, 1999.
+* Removed Source.Name column.
+
+### Sales Query
+
+* Appended International Sales data to the existing Sales table.
+* Added custom column:
+
+Country Name =
+
+* Country value if available
+
+* "USA" if Country is null
+
+* Removed Country column.
+
+## Result
+
+US and International sales data were consolidated into a single Sales table.
+
+---
+
+# Exercise 3: Import Less Structured Data from Excel
+
+## Objective
+
+Import and reshape population data from an Excel report.
+
+## Data Source
+
+Country Population Excel file.
+
+## Transformations Performed
+
+* Renamed query to Country Population.
+* Removed first four rows.
+* Promoted first row to headers.
+* Unpivoted yearly columns into rows.
+* Renamed columns:
+
+  * Attribute → Year
+  * Value → Population
+* Removed Year 1999 records.
+* Changed data types:
+
+  * Year → Whole Number
+  * Population → Whole Number
+
+## Result
+
+Population data was transformed into an analysis-ready format suitable for data modeling and reporting.
+
+---
+
+# Key Power BI Features Used
+
+* Get Data
+* Query Editor
+* Data Type Transformation
+* Row Filtering
+* Append Queries
+* Custom Columns
+* Remove Columns
+* Promote Headers
+* Unpivot Columns
+* Data Modeling
+
+---
+
+# Learning Outcomes
+
+By completing this project, I learned how to:
+
+* Import data from multiple sources.
+* Transform and clean datasets.
+* Combine datasets using Append Queries.
+* Create custom calculated columns.
+* Reshape unstructured data using Unpivot.
+* Prepare data for reporting and visualization in Power BI.
+
+---
+
+# Repository Contents
+
+* Power BI Project File (.pbix)
+* README.md
+* Screenshots (Optional)
+* Dataset References
+
+---
+
+## Author
+
+Vandan
+
+Power BI Data Preparation and Transformation Project
